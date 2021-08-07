@@ -34,9 +34,13 @@ First of all, git clone this repository so you can run
 this tutorial in your own system.
 
 You'll find the next 4 main folders:
+
 1.- *example_data* which contains GWAS summary statistics, gene expression and eQTLs data.
+
 2.- *overlap* contains scripts to run the overlap analysis between GWAS and eQTL, and a README file for instructions.
+
 3.- *colocalization* contains data, scripts and a README with detailed instructions for running the colocalization analysis.
+
 4.- *twas* contains scripts and a README file to perform the TWAS analysis.
 
 
@@ -46,16 +50,21 @@ are both eQTLs and GWAS-associated variants or in LD with
 a GWAS-associated variant.
 
 Steps:
+
 1.- Find significant GWAS snps (pval<5e-08).
+
 2.- Get LD snps for all GWAS significant snps.
+
 3.- Overlap GWAS significant + LD snps with eQTL,
 taking into account chromosome and position.
 
 To see the detailed information for this analysis, check the
+
 *overlap* folder and underlying README.
 
 
 *Colocalization analysis*
+
 Colocalization tries to identify causal genetic variants
 in a given region that are associated with both input summary statistics, i.e.
 both eQTL and GWAS statistics. We have implemented the tool *coloc*
@@ -63,21 +72,28 @@ both eQTL and GWAS statistics. We have implemented the tool *coloc*
 package for colocalization analysis.
 
 Steps:
+
 1.- Run coloc.abf function using GWAS significant snps and eQTL information.
+
 2.- Summarize and filter results using PP4 > 0.8 and PP4/PP3 ratio > 5.
+
 3.- Keep only colocalized variant that are eQTLs or in LD with an eQTL.
 
 For detailed description, check the *colocalization* folder and underlying README.
 
 
 *TWAS*
+
 TWAS analysis infers potential causal genes by asking if the effects
 in gene expression is relevant in a given disease. TWAS uses
 transcriptome prediction models and GWAS information to predict the target genes.
 
 Steps:
+
 1.- Build transcriptome prediction models.
+
 2.- Perform TWAS analysis using prediction models and GWAS summary statistics.
+
 3.- Filter TWAS results by the number of tests performed.
 
 Detailed information for this analysis can be found in
