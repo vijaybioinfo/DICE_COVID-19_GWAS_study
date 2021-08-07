@@ -59,7 +59,6 @@ Steps:
 taking into account chromosome and position.
 
 To see the detailed information for this analysis, check the
-
 *overlap* folder and underlying README.
 
 
