@@ -104,9 +104,11 @@ mkdir -p output/plink/;
 grep OAS1 output/chr12/Out_Summary_Coloc_Gene_SNP_Pairs_Filtered_PP4.bed | cut -f10 > output/plink/input.txt;
 
 *get LD snps for colocalized snps (for further information check https://www.cog-genomics.org/plink/)*
+
 plink --bfile {prefix} --keep {your_file} --r2 --ld-snp-list output/plink/input.txt --ld-window-kb 1000 --ld-window 99999 --ld-window-r2 0.8 --out output/plink/LD_out
 
 *get colocalized snps that are eQTLs or in LD with an eQTL*
+
 eqtls=$(grep -wFf <(cut -f3 ../example_data/eqtls/NCM.bed | sort | uniq ) output/plink/LD_out.ld | sed -r "s/\s+/\t/g" | cut -f4 | sort | uniq)
 
 (head -n1 output/chr12/Out_Summary_Coloc_Gene_SNP_Pairs_Filtered_PP4.bed && grep -f <(echo $eqtls | sed -r 's/\s+/\n/g') output/chr12/Out_Summary_Coloc_Gene_SNP_Pairs_Filtered_PP4.bed) > output/chr12/Coloc_results.bed
