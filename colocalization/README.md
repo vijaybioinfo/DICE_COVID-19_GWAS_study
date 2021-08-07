@@ -20,7 +20,9 @@ using eQTLs and GWAS summary statistics,
 
 install.packages(c('data.table', 'stringr', 'snpStats', 'ggplot2', 'ggplotify', 'argparse', 'coloc'))
 
+
 *Then run the commands below*
+
 
 Parameters description:
 
@@ -45,7 +47,9 @@ Parameters description:
 10.- "--p12": prior probability of a variant being an eQTL and a GWAS-associated variant. This is an optional parameter. By default p12 = 1e-5 (recommended). Users are advised to not alter this parameter unless they are absolutely sure.
 
 
+
 *get GWAS significant snps*
+
 mkdir -p output/gwas_input/;
 
 mkdir -p output/chr12/;
@@ -53,6 +57,7 @@ mkdir -p output/chr12/;
 awk '($5<5e-08)' ../example_data/gwas/C2_ALL_eur_leave_23andme.tsv  > output/gwas_input/C2_ALL_eur_leave_23andme.tsv
 
 *Run Coloc*
+
 Rscript scripts/Colocalization_Analysis_GWAS_Script.R \
         --celltype NCM \
         --gwas output/gwas_input/C2_ALL_eur_leave_23andme.tsv \
@@ -65,8 +70,11 @@ Rscript scripts/Colocalization_Analysis_GWAS_Script.R \
 
 
 *Summarize coloc results*
+
 Parameters description:
+
 1.- "--coloc-dir" output folder specified in colocalization analysis (see command above)
+
 2.- "--ref-eqtls" file containg eqtls for the celltype specified (see example_data/refeqtls/NCM.bed)
 
 
@@ -76,16 +84,21 @@ Rscript scripts/Colocalization_Analysis_GWAS_Summary_Script.R \
 
 
 *Filter results*
+
 To keep only colocalized snps that
 are eQTLs or in LD with an eQTL run
 the following commands:
 
 Parameters description:
+
 1.- "--bfile" prefix for .bed .bim and .fam genotype files.
+
 2.- "--keep"  file containing samples to keep
+
 3.- ld_snp_list: a file with the list of colocalized snps for one gene
 
 *get colocalized snps for gene OAS1*
+
 mkdir -p output/plink/;
 
 grep OAS1 output/chr12/Out_Summary_Coloc_Gene_SNP_Pairs_Filtered_PP4.bed | cut -f10 > output/plink/input.txt;
