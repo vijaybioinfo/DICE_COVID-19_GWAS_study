@@ -22,21 +22,32 @@ install.packages(c('data.table', 'stringr', 'snpStats', 'ggplot2', 'ggplotify', 
 
 *Then run the commands below*
 
-Parameters description: \n
+Parameters description:
+
 1.- "--celltype": celltype name
+
 2.- "--gwas": gwas summary statistics (see output/gwas_input/C2_ALL_eur_leave_23andme_round5.tsv)
+
 3.- "--snpinfo": file containing chromosome. position. reference and alternative allele for each snp (see coloc_example_data/snpinfo/snpinfo_chr12.txt)
+
 4.- "--chr": chromosome
+
 5.- "--outdir": output directory
+
 6.- "--ref-eqtls": file containg eqtls for the celltype specified (see ../example_data/refeqtls/NCM.bed)
+
 7.- "--matrix-eqtl": Matrix eqtl output file for celltype and chromosome specified (see coloc_example_data/matrix_eqtl/Output_Chr12_all_cis.txt)
+
 8.- "--use-cc": Use 0 to run the analysis using pvalue and standard error (se), 1 to use case control ratio, or 2 to use pval, se and case control ratio. We recommend using 0 for this parameter.
+
 9.- "--cc-ratio": Case control ratio (only used if --use-cc is 1 or 2), obtained from the reference GWAS studies.
+
 10.- "--p12": prior probability of a variant being an eQTL and a GWAS-associated variant. This is an optional parameter. By default p12 = 1e-5 (recommended). Users are advised to not alter this parameter unless they are absolutely sure.
 
 
 *get GWAS significant snps*
 mkdir -p output/gwas_input/;
+
 mkdir -p output/chr12/;
 
 awk '($5<5e-08)' ../example_data/gwas/C2_ALL_eur_leave_23andme.tsv  > output/gwas_input/C2_ALL_eur_leave_23andme.tsv
