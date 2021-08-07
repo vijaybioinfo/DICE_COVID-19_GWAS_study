@@ -21,9 +21,13 @@ cross-validation. This is performed in
 2 steps, model training and make db file step.
 
 To build prediction models you will need:
+
 1.- Model Training script (see https://github.com/gamazonlab/MR-JTI/blob/master/model_training/predixcan/src/predixcan_r.r)
+
 2.- "--plink_file_name" prefix for 3 genotype files (.bed, .bim and .fam)
+
 3.- "--expression_file_name" An expression matrix with donor id as columns and genes as rows (see twas_example_data/prediction_models/expression/NCM.txt)
+
 4.- "--annotation_file_name" A gene annotation file (see twas_example_data/prediction_models/annotation/gene_annotation.txt)
 
 *Model Training*
@@ -61,9 +65,13 @@ TWAS
 -------------------
 To perform TWAS analysis the following files
 and software are required:
+
 1.- MetaXcan software (see https://github.com/hakyimlab/MetaXcan)
+
 2.- "--model_db_path" A db file of the prediction model (see output/prediction_models/NCM/output/NCM.db, also see steps above)
+
 3.- "--covariance" A covariance file of the prediction model (see see output/prediction_models/NCM/output/NCM.cov, also see steps above)
+
 4.- "--gwas_file" A gwas summary statistics file (see ../example_data/gwas/C2_ALL_eur_leave_23andme.tsv)
 
 *Perform TWAS*
