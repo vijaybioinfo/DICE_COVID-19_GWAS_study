@@ -23,7 +23,9 @@ install.packages(c('data.table', 'stringr', 'snpStats', 'ggplot2', 'ggplotify', 
 *Then run the commands below*
 
 Parameters description:
+
 1.- "--celltype": celltype name
+
 2.- "--gwas": gwas summary statistics (see output/gwas_input/C2_ALL_eur_leave_23andme_round5.tsv)
 3.- "--snpinfo": file containing chromosome. position. reference and alternative allele for each snp (see coloc_example_data/snpinfo/snpinfo_chr12.txt)
 4.- "--chr": chromosome
